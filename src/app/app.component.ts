@@ -31,6 +31,10 @@ export class AppComponent {
     this.display = true;
   }
 
+  hideDialog() {
+    this.display = false;
+  }
+
   onSubmit() {
     var regex = /^[A-Za-z]+$/;
 
@@ -56,7 +60,7 @@ export class AppComponent {
 
     if (valid) {
       this.personas.push(new Persona(this.name, this.lastName));
-      this.showCustom();
+      this.showOKMsj();
       this.clearForm();
     }
   }
@@ -67,7 +71,7 @@ export class AppComponent {
     this.lastName = null;
   }
 
-  showCustom() {
+  showOKMsj() {
     this.messageService.add({
       key: 'custom',
       severity: 'info',
