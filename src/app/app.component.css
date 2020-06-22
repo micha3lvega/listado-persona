@@ -1,15 +1,13 @@
-span {
-    color: red;
-    font-size: 10px;
-    font-weight: bold;
-}
-
-dialog {
-    width: 50vw;
-}
-
-@media screen and(max-width: 40em) {
-    .dialog {
-        width: 75vw;
-    }
+.title {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 33px;
+    letter-spacing: -1.4px;
+    word-spacing: 1.4px;
+    color: #000000;
+    font-weight: 700;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: small-caps;
+    text-transform: lowercase;
+    text-align: center;
 }

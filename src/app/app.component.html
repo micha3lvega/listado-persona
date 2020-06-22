@@ -1,100 +1,34 @@
-<div class="container">
-  <p-dialog
-    id="formNewPerson"
-    header="Crear persona"
-    [(visible)]="display"
-    styleClass="dialog"
-    resizable="false"
-    modal="true"
-    maximizable="true"
-    maximizeIcon="pi pi-external-link"
-    closeIcon="pi pi-times-circle"
-  >
-    <div class="container">
-      <form #personFrom (ngSubmit)="onSubmit()" method="post">
-        <div class="modal-body">
-          <div class="row">
-            <div class="col-6">
-              <span class="ui-float-label">
-                <input
-                  id="name"
-                  class="form-control"
-                  type="text"
-                  name="name"
-                  pInputText
-                  [(ngModel)]="name"
-                />
-                <label for="name">Nombre: </label>
-              </span>
-              <span *ngIf="invalidaName">*Nombre invalido</span>
-            </div>
-            <div class="col-6">
-              <span class="ui-float-label">
-                <input
-                  id="lastName"
-                  name="lastName"
-                  class="form-control"
-                  type="text"
-                  pInputText
-                  [(ngModel)]="lastName"
-                />
-                <label for="float-input">Apellido: </label>
-              </span>
-              <span *ngIf="invalidaLastName">*Apellido invalido</span>
-            </div>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <div class="container">
-            <div class="row">
-              <div class="col-6">
-                <button
-                  type="button"
-                  class="btn btn-outline-danger btn-block"
-                  data-dismiss="modal"
-                  (click)="hideDialog()"
-                >
-                  Cerrar
-                </button>
-              </div>
-              <div class="col-6">
-                <button type="submit" class="btn btn-outline-success btn-block">
-                  Save changes
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </form>
-    </div>
-  </p-dialog>
+<div id="title" class="text-center title container">
+  <hr />
+  <h1>{{ title }}</h1>
+  <hr />
+</div>
 
-  <p-toast
-    id="toast"
-    styleClass="custom-toast"
-    key="custom"
-    position="top-center"
-    [showTransformOptions]="'translateX(-100%)'"
-  ></p-toast>
+<app-formulario-persona
+  (personaCreada)="addPerson($event)"
+></app-formulario-persona>
 
-  <div
-    class="container text-right"
-    style="margin-top: 30px;"
-    id="DialogShowButton"
-  >
-    <button
-      type="button"
-      class="btn btn-primary"
-      (click)="showDialog()"
-      id="buttonNewPerson"
-    >
-      Crear persona
-    </button>
-  </div>
-
-  <app-persona
-    *ngFor="let persona of personas; index as i"
-    [persona]="persona"
-    [indice]="i"
-  ></app-persona>
+<div id="table" class="container">
+  <table class="table table-bordered table-striped text-center">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellidos</th>
+      </tr>
+    </thead>
+    <tbody class="table-hover table-striped">
+      <tr *ngFor="let persona of personas; index as i">
+        <th scope="row">
+          {{ i + 1 }}
+        </th>
+        <th>
+          {{ persona.name }}
+        </th>
+        <th>
+          {{ persona.lastName }}
+        </th>
+      </tr>
+    </tbody>
+  </table>
 </div>

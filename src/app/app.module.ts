@@ -11,10 +11,10 @@ import { TabViewModule } from 'primeng/tabview';
 import { InputTextModule } from 'primeng/inputtext';
 import { CodeHighlighterModule } from 'primeng/codehighlighter';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { PersonaComponent } from './persona/persona.component';
+import { FormularioPersonaComponent } from './formulario-persona/formulario-persona.component';
 
 @NgModule({
-  declarations: [AppComponent, PersonaComponent],
+  declarations: [AppComponent, FormularioPersonaComponent],
   imports: [
     ToastModule,
     ButtonModule,
